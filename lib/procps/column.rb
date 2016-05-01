@@ -1,4 +1,5 @@
 module Procps
+  # Creates a column object with a typecasting for ps results.
   class Column
     attr_reader :header
     alias :to_s :header
@@ -10,6 +11,7 @@ module Procps
       freeze
     end
 
+    # Typecasts a raw value
     def call(value)
       @cast.nil? ? value : @cast.call(value)
     rescue => e
@@ -17,6 +19,7 @@ module Procps
       value
     end
 
+    # The abstract class for complex column objects.
     class Type
       attr_reader :original
       alias :to_s :original

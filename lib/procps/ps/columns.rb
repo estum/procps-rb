@@ -8,7 +8,6 @@ module Procps
     Address    = -> (base = 10, null: "-".freeze) { -> (v) { v.is_a?(String) ? v == null ? nil : v.to_i(base) : v } }
     Address_10 = Address[]
     Address_16 = Address[16]
-    # KiB        = -> (v) { v.to_i * 1024 }
 
     @@columns = {
       :blocked    => Column.new("BLOCKED"),

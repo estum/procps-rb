@@ -1,6 +1,7 @@
 require 'procps/column'
 
 module Procps
+  # The column type for a +command+ column.
   class Command < Column::Type
     attr_reader :name, :arguments, :title
     alias :to_s :name

@@ -2,6 +2,7 @@ require 'shellwords'
 
 module Procps
   class PS
+    # Builds complete +ps+ shell command before execution.
     class CommandBuilder
       def initialize(ps)
         @ps = ps

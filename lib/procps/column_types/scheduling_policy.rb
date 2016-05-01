@@ -1,6 +1,7 @@
 require 'procps/column'
 
 module Procps
+  # The column type for a +policy+ column.
   class SchedulingPolicy < Column::Type
     attr_reader :value
     alias :to_sym :value

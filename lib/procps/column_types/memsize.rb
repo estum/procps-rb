@@ -1,6 +1,7 @@
 require 'procps/column'
 
 module Procps
+  # The column type for a +memsize+ column.
   class Memsize < DelegateClass(Integer)
     def self.call(value)
       new(value)
