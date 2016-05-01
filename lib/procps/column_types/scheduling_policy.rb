@@ -6,8 +6,8 @@ module Procps
     alias :to_sym :value
 
     POLICIES       = %i(SCHED_OTHER SCHED_FIFO SCHED_RR SCHED_BATCH SCHED_ISO SCHED_IDLE).freeze
-    NORMALIZED_MAP = {"TS" => POLICIES[0], "FF" => POLICIES[1], "RR" => POLICIES[2],
-                      "B" => POLICIES[3], "ISO" => POLICIES[4], "IDL" => POLICIES[5],
+    NORMALIZED_MAP = {"TS" => POLICIES[0], "FF"  => POLICIES[1], "RR"  => POLICIES[2],
+                      "B"  => POLICIES[3], "ISO" => POLICIES[4], "IDL" => POLICIES[5],
                       "?" => :unknown_value, "-" => :not_reported }.freeze
 
     private_constant :POLICIES

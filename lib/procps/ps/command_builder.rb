@@ -8,7 +8,7 @@ module Procps
       end
 
       def call
-        Shellwords.join([@ps.bin_path, *modifiers, *options].compact)
+        [@ps.bin_path, *modifiers, *options].compact
       end
 
       def modifiers
