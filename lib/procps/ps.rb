@@ -1,10 +1,29 @@
-require 'procps/ps/columns'
 require 'procps/ps/command_builder'
 
 module Procps
+  # By default it loads only base columns.
+  # To load extra columns require <tt>procps/ps/extra_columns</tt> after the gem is loaded.
+  #
+  # You can also define custom columns with the Procps::PS.define_column method.
   class PS
     DEFAULT_BIN_PATH = "/usr/bin/ps"
     DEFAULT_COLUMNS  = %i(pid rss pcpu)
+
+    def self.columns
+      @@columns ||= {}
+    end
+
+    # Define a column (see base columns in <tt>lib/procps/ps/base_columns.rb
+    # </tt> and extra columns in <tt>lib/procps/ps/extra_columns.rb</tt>)
+    def self.define_column(name, header = nil, cast = nil, &cast_block)
+      header ||= name.to_s.upcase
+      columns[name.downcase.to_sym] = Column.new(header, cast, &cast_block)
+    end
+
+    # Creates an alias to a column
+    def self.alias_column(new_name, old_name)
+      columns[new_name.to_sym] = old_name.to_sym
+    end
 
     attr_accessor :bin_path, :options, :modifiers
 
