@@ -1,3 +1,4 @@
+require 'set'
 require 'procps/ps/command_builder'
 
 module Procps
