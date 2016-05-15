@@ -146,8 +146,6 @@ module Procps
     end
 
     def exec_command
-      p to_command
-
       headers, *rows = IO.popen(to_command, "r") do |io|
         io.readlines
       end
